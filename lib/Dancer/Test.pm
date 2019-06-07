@@ -291,7 +291,7 @@ sub _check_header {
     my ($headers, $key, $value) = @_;
     for (my $i=0; $i<scalar(@$headers); $i+=2) {
         my ($name, $val) = ($headers->[$i], $headers->[$i + 1]);
-        return 1 if $name eq $key && $value eq $val;
+        return 1 if lc($name) eq lc($key) && $value eq $val;
     }
     return 0;
 }
